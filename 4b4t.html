@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4b4t | Minecraft Server</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">4B<span>4T</span></div>
+        <nav>
+            <a href="#o-nas">O serveru</a>
+            <a href="#minihry">Herní módy</a>
+            <a href="#vip">VIP Obchod</a>
+            <a href="#team">Admin Team</a>
+            <a href="#pravidla">Pravidla</a>
+            <a href="https://discord.gg/TRRtBBTPY" target="_blank" class="btn-discord">Discord</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="status-badge" id="server-status">
+            <span class="dot offline" id="status-dot"></span>
+            <span id="player-count">Načítám stav serveru...</span>
+        </div>
+
+        <h1>Vítej na serveru 4b4t</h1>
+        <p>Nejlepší jarošácký Survival a SkyBlock zážitek. Připoj se k naší komunitě ještě dnes!</p>
+        
+        <div class="ip-box" onclick="copyIP()">
+            <span id="server-ip">della-handsome.tun.ply.gg</span>
+            <button id="copy-btn">Kopírovat IP</button>
+        </div>
+        <p class="version-info">Verze: 26.2 (Java Edition)</p>
+    </section>
+
+    <section id="o-nas" class="container">
+        <h2>Proč hrát u nás?</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Updaty</h3>
+                <p>Časté a velké updaty.</p>
+            </div>
+            <div class="card">
+                <h3>Skvělá komunita</h3>
+                <p>Přátelští hráči a spravedlivý Admin Team, který ti ochotně poradí.</p>
+            </div>
+            <div class="card">
+                <h3>Eventy</h3>
+                <p>Některé víkendy pořádáme soutěže a minihry.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="minihry" class="container dark-bg">
+        <h2>Naše herní módy</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Survival</h3>
+                <p>Klasický survival vylepšený o některé příkazy, pozemky a jedinečné struktury.</p>
+            </div>
+            <div class="card">
+                <h3>Náhodné eventy.</h3>
+                <p>Soutěž s ostatnimi hráči a vyhraj výhody na serveru.</p>
+            </div>
+            <div class="card">
+                <h3>PvP</h3>
+                <p>Bojuj proti ostatním hráčům a získej jejich věci.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="vip" class="container">
+        <h2>VIP Obchod (momentálně nedostupné)</h2>
+        <p class="section-subtitle">Podpoř chod serveru a získej exkluzivní kosmetické i herní výhody.</p>
+        <div class="cards">
+            <div class="card vip-card">
+                <span class="vip-tag silver">VIP</span>
+                <div class="price">19 Kč <span>/ navždy</span></div>
+                <ul class="vip-features">
+                    <li>✔ Barevný prefix v chatu</li>
+                    <li>✔ Přístup k příkazu <code>/hat</code> a <code>/workbench</code></li>
+                    <li>✔ Až 3 uložené domovy (<code>/sethome</code>)</li>
+                    <li>✔ 1× měsíčně VIP Truhla</li>
+                </ul>
+                <button class="btn-buy" onclick="buyVIP('VIP', '79 Kč')">Koupit VIP</button>
+            </div>
+
+            <div class="card vip-card featured">
+                <div class="popular-badge">NEJOBLÍBENĚJŠÍ</div>
+                <span class="vip-tag gold">LEGEND</span>
+                <div class="price">49 Kč <span>/ navždy</span></div>
+                <ul class="vip-features">
+                    <li>✔ Všechny výhody základního VIP</li>
+                    <li>✔ Létání na lobby (<code>/fly</code>)</li>
+                    <li>✔ Až 6 uložených domovů</li>
+                    <li>✔ Příkaz <code>/enderchest</code> odkudkoli</li>
+                    <li>✔ 2× měsíčně LEGEND Truhla</li>
+                </ul>
+                <button class="btn-buy" onclick="buyVIP('LEGEND', '149 Kč')">Koupit LEGEND</button>
+            </div>
+
+            <div class="card vip-card">
+                <span class="vip-tag diamond">GOD</span>
+                <div class="price">99 Kč <span>/ navždy</span></div>
+                <ul class="vip-features">
+                    <li>✔ Všechny výhody Legend</li>
+                    <li>✔ Vlastní zpráva při připojení</li>
+                    <li>✔ Neomezený počet domovů</li>
+                    <li>✔ Příkaz <code>/repair</code> a <code>/feed</code></li>
+                    <li>✔ Vlastní mazlíčci a efekty částic</li>
+                </ul>
+                <button class="btn-buy" onclick="buyVIP('GOD', '249 Kč')">Koupit GOD</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="container dark-bg">
+        <h2>Náš Admin Team</h2>
+        <p class="section-subtitle">Lidé, kteří se starají o hladký chod serveru a pomáhají hráčům.</p>
+        <div class="team-grid">
+            <div class="team-member">
+                <img class="mc-head" data-nick="Zayen" alt="Majitel">
+                <h3>Zayen</h3>
+                <span class="role owner">Majitel</span>
+            </div>
+            <div class="team-member">
+                <img class="mc-head" data-nick="KolabrPoklop" alt="Hlavní Admin">
+                <h3>KolabrPoklop</h3>
+                <span class="role admin">Admin</span>
+            </div>
+            <div class="team-member">
+                <img class="mc-head" data-nick="charlikaja" alt="Developer">
+                <h3>charlikaja</h3>
+                <span class="role dev">Admin</span>
+            </div>
+            <div class="team-member">
+                <img class="mc-head" data-nick="matvej_sus" alt="Helper">
+                <h3>matvej_sus</h3>
+                <span class="role helper">Builder</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="pravidla" class="container">
+        <h2>Základní pravidla</h2>
+        <ul class="rules-list">
+            <li>Zákaz používání cheatů, X-Ray a nepovolených modifikací.</li>
+            <li>Chovej se slušně k ostatním hráčům i členům Admin Teamu.</li>
+            <li>Zákaz ničení staveb se kterými si autor dal hodně práce a obchodů.</li>
+            <li>Reklama na jiné servery je přísně zakázána.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 4b4t.cz | Nejsme spojeni se společností Mojang AB.</p>
+    </footer>
+
+    <script>
+        const SERVER_IP = "della-handsome.tun.ply.gg";
+
+        // 1. Kopírování IP adresy po kliknutí
+        function copyIP() {
+            const ipText = document.getElementById("server-ip").innerText;
+            const btn = document.getElementById("copy-btn");
+            
+            navigator.clipboard.writeText(ipText).then(() => {
+                btn.innerText = "Zkopírováno!";
+                btn.style.backgroundColor = "#2ecc71";
+                setTimeout(() => {
+                    btn.innerText = "Kopírovat IP";
+                    btn.style.backgroundColor = "#3ba55c";
+                }, 2000);
+            });
+        }
+
+                // 2. Načtení živého stavu serveru a počtu hráčů
+        async function fetchServerStatus() {
+            const countEl = document.getElementById("player-count");
+            const dotEl = document.getElementById("status-dot");
+            const apiUrl = "https://api." + "mcsrvstat.us/3/" + SERVER_IP;
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                if (data.online) {
+                    dotEl.classList.remove("offline");
+                    dotEl.classList.add("online");
+                    countEl.innerText = `Online: ${data.players.online} / ${data.players.max} hráčů`;
+                } else {
+                    dotEl.classList.remove("online");
+                    dotEl.classList.add("offline");
+                    countEl.innerText = "Server je momentálně offline";
+                }
+            } catch (error) {
+                countEl.innerText = "Nepodařilo se načíst stav serveru";
+            }
+        }
+
+        // 3. Upozornění při kliknutí na VIP
+        function buyVIP(rankName, price) {
+            alert(`Vybral jsi balíček ${rankName} za ${price}.\n\nPro dokončení nákupu se připoj na náš Discord nebo použij ve hře příkaz /vip.`);
+        }
+
+                // Spustit kontrolu při načtení stránky
+        fetchServerStatus();
+
+        // 4. Načtení hlav hráčů v Admin Teamu
+        document.querySelectorAll('.mc-head').forEach(img => {
+            const nick = img.getAttribute('data-nick');
+            img.src = "https://mc-heads." + "net/head/" + nick + "/100";
+        });
+    </script>
+    
+</body>
+</html>
